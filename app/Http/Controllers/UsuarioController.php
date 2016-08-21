@@ -17,7 +17,8 @@ class UsuarioController extends Controller {
 	 */
 	public function index()
 	{
-	
+		$users = User::paginate(15);
+		return view('Usuario.index', compact('users'));
 	}
 
 	/**
@@ -28,7 +29,7 @@ class UsuarioController extends Controller {
 	public function create()
 	{
 		$TipoUsuario = TipoUsuario::lists('tipoUsuario','id');
-		return view('usuario.create', compact('TipoUsuario'));
+		return view('Usuario.create', compact('TipoUsuario'));
 	}
 
 	/**
@@ -40,7 +41,7 @@ class UsuarioController extends Controller {
 	{
 		User::create($request->all());
 		Session::flash('message', 'usuario creado correctamente');
-		return redirect('/usuario');
+		return redirect('/Usuario');
 	}
 
 	/**
@@ -62,7 +63,7 @@ class UsuarioController extends Controller {
 	 */
 	public function edit($id)
 	{
-		
+		return view('Usuario.edit', ['user'=>$this->user]);
 	}
 
 	/**
