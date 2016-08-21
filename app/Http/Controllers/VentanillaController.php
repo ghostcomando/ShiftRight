@@ -17,8 +17,7 @@ class VentanillaController extends Controller {
 	 */
 	public function index()
 	{
-		$Ventanillas = Ventanilla::paginate(15);
-		return view('Ventanilla.index', compact('Ventanillas'));
+		//
 	}
 
 	/**

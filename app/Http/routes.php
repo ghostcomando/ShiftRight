@@ -14,7 +14,7 @@
 Route::get('/', 'FrontController@index');
 Route::get('admin', 'FrontController@admin');
 
-Route::resource('Usuario', 'UsuarioController');
+Route::resource('usuario', 'UsuarioController');
 Route::resource('TipoUsuario', 'TipoUsuarioController');
 Route::resource('Ventanilla', 'VentanillaController');
 Route::resource('TipoVentanilla', 'TipoVentanillaController');

@@ -3,17 +3,19 @@
 		@include('alerts.AlertsRequest')
 		<table class="table">
 			<thead>
-				<th>Tipo de Ventanilla</th>
+				<th>Nombre</th>
+				<th>Correo</th>
 				<th>Operacion</th>
 			</thead>
-			@foreach($TipoVentanillas as $TipoVentanilla)
+			@foreach($users as $user)
 			<tbody>
-				<td>{{$TipoVentanilla->tipoVentanilla}}</td>
+				<td>{{$user->name}}</td>
+				<td>{{$user->email}}</td>
 				<td>
-					{!!link_to_route('TipoVentanilla.edit', $title = 'Editar', $parameters = $TipoVentanilla->id, $attributes = ['class'=>'btn btn-primary'])!!}
+					{!!link_to_route('usuario.edit', $title = 'Editar', $parameters = $user->id, $attributes = ['class'=>'btn btn-primary'])!!}
 				</td>
 			</tbody>
 			@endforeach
 		</table>
-		{!!$TipoVentanillas->render()!!}
+		{!!$users->render()!!}
 @stop

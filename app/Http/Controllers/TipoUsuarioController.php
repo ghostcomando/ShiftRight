@@ -16,8 +16,7 @@ class TipoUsuarioController extends Controller {
 	 */
 	public function index()
 	{
-		$TipoUsuarios = TipoUsuario::paginate(15);
-		return view('TipoUsuario.index', compact('TipoUsuarios'));
+		//
 	}
 
 	/**
