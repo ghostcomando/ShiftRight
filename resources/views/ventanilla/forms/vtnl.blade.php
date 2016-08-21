@@ -4,6 +4,8 @@
 	{!!form::text('ventanilla',null, ['class'=>'form-control', 'placeholder'=>'Ingresa el nombre de la ventanilla'])!!}
 </div>
 <div class="form-group">
-	{!!form::label('Tipo de ventanilla: ')!!}
-	{!!form::text('tipoVentanillas_id',null, ['class'=>'form-control', 'placeholder'=>'Ingrese el tipo de ventanilla'])!!}
-</div>
+			{!!form::label('Tipo de Ventanilla: ')!!}
+			<div class="dropdown">
+				{!!form::select('tipoVentanillas_id', $TipoVentanilla, null, ['class'=> 'btn btn-default'])!!}			
+			</div>
+		</div>

@@ -3,6 +3,7 @@
 use TurnosPonal\Http\Requests;
 use TurnosPonal\Http\Controllers\Controller;
 use TurnosPonal\Ventanilla;
+use TurnosPonal\TipoVentanilla;
 use Session;
 use Redirect;
 use Illuminate\Http\Request;
@@ -26,7 +27,8 @@ class VentanillaController extends Controller {
 	 */
 	public function create()
 	{
-		return view('ventanilla.create');
+		$TipoVentanilla = TipoVentanilla::lists('tipoVentanilla','id');
+		return view('ventanilla.create', compact('TipoVentanilla'));
 	}
 
 	/**

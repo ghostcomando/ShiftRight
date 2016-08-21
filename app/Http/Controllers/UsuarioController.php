@@ -3,6 +3,7 @@
 use TurnosPonal\Http\Requests;
 use TurnosPonal\Http\Controllers\Controller;
 use TurnosPonal\User;
+use TurnosPonal\TipoUsuario;
 use Session;
 use Redirect;
 use Illuminate\Http\Request;
@@ -26,12 +27,13 @@ class UsuarioController extends Controller {
 	 */
 	public function create()
 	{
-		return view('usuario.create');
+		$TipoUsuario = TipoUsuario::lists('tipoUsuario','id');
+		return view('usuario.create', compact('TipoUsuario'));
 	}
 
 	/**
 	 * Store a newly created resource in storage.
-	 *
+	 
 	 * @return Response
 	 */
 	public function store(request $request)

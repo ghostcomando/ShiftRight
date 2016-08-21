@@ -11,11 +11,20 @@
 			{!!form::label('Usuario: ')!!}
 			{!!form::text('usuario',null, ['class'=>'form-control', 'placeholder'=>'Ingresa el usuario'])!!}
 		</div>
+
 		<div class="form-group">
-			{!!form::label('Tipo de usuario: ')!!}
-			{!!form::number('tipoUser_id',null, ['class'=>'form-control', 'placeholder'=>'Ingresa el tipo de usuario'])!!}
+			{!!form::label('Tipo de Usuario: ')!!}
+			<div class="dropdown">
+				{!!form::select('tipoUser_id', $TipoUsuario, null, ['class'=> 'btn btn-default'])!!}			
+			</div>
 		</div>
+
 		<div class="form-group">
 			{!!form::label('Contrase&ntilde;a: ')!!}
 			{!!form::password('password', ['class'=>'form-control', 'placeholder'=>'Ingresa la contrase&ntilde;a'])!!}
 		</div>
+		<div class="dropdown">
+			
+		</div>
+		
+		<br>
