@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: TurnosPonal
+        psr4_prefix: TurnosPonal
+        src_path: app
