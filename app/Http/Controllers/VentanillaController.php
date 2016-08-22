@@ -63,7 +63,9 @@ class VentanillaController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$TipoVentanilla = TipoVentanilla::lists('tipoVentanilla','id');
+		$Ventanilla = Ventanilla::find($id);
+		return view('Ventanilla.edit', ['Ventanilla'=>$Ventanilla], compact('TipoVentanilla'));
 	}
 
 	/**
@@ -72,9 +74,13 @@ class VentanillaController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($id, Request $request)
 	{
-		//
+		$Ventanilla = Ventanilla::find($id);
+		$Ventanilla->fill($request->all());
+		$Ventanilla->save();
+		Session::flash('message', 'Ventanilla modificada correctamente');
+		return Redirect::to('/Ventanilla');
 	}
 
 	/**
@@ -85,7 +91,9 @@ class VentanillaController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		Ventanilla::destroy($id);
+		Session::flash('message', 'Ventanilla eliminada correctamente');
+		return Redirect::to('/Ventanilla');
 	}
 
 }

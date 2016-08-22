@@ -15,7 +15,7 @@
 <div class="form-group">
 	{!!form::label('Tipo de Usuario: ')!!}
 	<div class="dropdown">
-		{!!form::select('tipoUser_id', $TipoUsuario, null, ['class'=> 'btn btn-default'])!!}			
+		{!!form::select('tipoUser_id', $TipoUsuario, null, ['class'=> 'btn btn-default'])!!}		
 	</div>
 </div>
 
@@ -23,5 +23,3 @@
 	{!!form::label('Contrase&ntilde;a: ')!!}
 	{!!form::password('password', ['class'=>'form-control', 'placeholder'=>'Ingresa la contrase&ntilde;a'])!!}
 </div>
-
-<br>

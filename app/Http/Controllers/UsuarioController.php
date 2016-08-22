@@ -65,7 +65,9 @@ class UsuarioController extends Controller {
 	 */
 	public function edit($id)
 	{
-		return view('Usuario.edit', ['user'=>$this->user]);
+		$TipoUsuario = TipoUsuario::lists('tipoUsuario','id');
+		$User = User::find($id);
+		return view('Usuario.edit', ['user'=>$User], compact('TipoUsuario'));
 	}
 
 	/**
@@ -74,9 +76,13 @@ class UsuarioController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($id, Request $request)
 	{
-		//
+		$User = User::find($id);
+		$User->fill($request->all());
+		$User->save();
+		Session::flash('message', 'usuario modificado correctamente');
+		return Redirect::to('/Usuario');
 	}
 
 	/**
@@ -87,7 +93,9 @@ class UsuarioController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		User::destroy($id);
+		Session::flash('message', 'usuario eliminado correctamente');
+		return Redirect::to('/Usuario');
 	}
 
 }

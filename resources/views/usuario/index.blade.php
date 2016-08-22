@@ -1,6 +1,11 @@
 @extends('layouts.admin')
+	@if(Session::has('message'))
+		<div class="alert alert-success alert-dismissible" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			{{Session::get('message')}}
+		</div>
+	@endif
 	@section('content')
-		@include('alerts.AlertsRequest')
 		<table class="table">
 			<thead>
 				<th>Nombre</th>
@@ -15,7 +20,7 @@
 				<td>{{$user->email}}</td>
 				<td>{{$user->usuario}}</td>
 				<?php
-					$TU = $user->id
+					$TU = $user->tipoUser_id;
 				?>
 				<td>{{DB::table('tipo_usuarios')->where('id', $TU)->pluck('tipoUsuario')}}</td>
 				<td>

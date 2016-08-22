@@ -61,7 +61,8 @@ class TipoVentanillaController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$TipoVentanilla = TipoVentanilla::find($id);
+		return view('TipoVentanilla.edit', ['tipoVentanilla'=>$TipoVentanilla]);
 	}
 
 	/**
@@ -70,9 +71,13 @@ class TipoVentanillaController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($id, Request $request)
 	{
-		//
+		$TipoVentanilla = TipoVentanilla::find($id);
+		$TipoVentanilla->fill($request->all());
+		$TipoVentanilla->save();
+		Session::flash('message', 'Tipo de Ventanilla modificada correctamente');
+		return Redirect::to('/TipoVentanilla');
 	}
 
 	/**
@@ -83,7 +88,9 @@ class TipoVentanillaController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		TipoVentanilla::destroy($id);
+		Session::flash('message', 'Tipo de Ventanilla eliminada correctamente');
+		return Redirect::to('/TipoVentanilla');
 	}
 
 }
