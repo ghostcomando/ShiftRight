@@ -10,7 +10,10 @@
 			@foreach($Ventanillas as $Ventanilla)
 			<tbody>
 				<td>{{$Ventanilla->ventanilla}}</td>
-				<td>{{$Ventanilla->tipoVentanillas_id}}</td>
+				<?php
+					$TV = $Ventanilla->id
+				?>
+				<td>{{DB::table('tipo_ventanillas')->where('id', $TV)->pluck('tipoVentanilla')}}</td>
 				<td>
 					{!!link_to_route('Ventanilla.edit', $title = 'Editar', $parameters = $Ventanilla->id, $attributes = ['class'=>'btn btn-primary'])!!}
 				</td>

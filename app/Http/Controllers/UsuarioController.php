@@ -6,6 +6,7 @@ use TurnosPonal\User;
 use TurnosPonal\TipoUsuario;
 use Session;
 use Redirect;
+use DB;
 use Illuminate\Http\Request;
 
 class UsuarioController extends Controller {
@@ -17,6 +18,7 @@ class UsuarioController extends Controller {
 	 */
 	public function index()
 	{
+		
 		$users = User::paginate(15);
 		return view('Usuario.index', compact('users'));
 	}

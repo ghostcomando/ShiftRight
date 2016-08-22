@@ -14,7 +14,10 @@
 				<td>{{$user->name}}</td>
 				<td>{{$user->email}}</td>
 				<td>{{$user->usuario}}</td>
-				<td>{{$user->tipoUser_id}}</td>
+				<?php
+					$TU = $user->id
+				?>
+				<td>{{DB::table('tipo_usuarios')->where('id', $TU)->pluck('tipoUsuario')}}</td>
 				<td>
 					{!!link_to_route('Usuario.edit', $title = 'Editar', $parameters = $user->id, $attributes = ['class'=>'btn btn-primary'])!!}
 				</td>
