@@ -16,7 +16,8 @@ class TipoVentanillaController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		$TipoVentanillas = TipoVentanilla::paginate(15);
+		return view('TipoVentanilla.index', compact('TipoVentanillas'));
 	}
 
 	/**

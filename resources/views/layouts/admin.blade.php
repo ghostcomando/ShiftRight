@@ -52,10 +52,10 @@
                             <a href="#"><i class="fa fa-users fa-fw"></i> Usuarios<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{!!URL::to('/usuario/create')!!}"><i class='fa fa-user fa-fw'></i> Agregar</a>
+                                    <a href="{!!URL::to('/Usuario/create')!!}"><i class='fa fa-user fa-fw'></i> Agregar</a>
                                 </li>
                                 <li>
-                                    <a href="{!!URL::to('/usuario')!!}"><i class='fa fa-list-ol fa-fw'></i> Listado de Usuarios</a>
+                                    <a href="{!!URL::to('/Usuario')!!}"><i class='fa fa-list-ol fa-fw'></i> Listado de Usuarios</a>
                                 </li>
                             </ul>
                         </li>
