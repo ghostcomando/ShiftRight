@@ -1,6 +1,7 @@
 <?php namespace TurnosPonal\Http\Controllers;
 
 use TurnosPonal\Http\Requests;
+use TurnosPonal\Http\Requests\VentanillaRequest;
 use TurnosPonal\Http\Controllers\Controller;
 use TurnosPonal\Ventanilla;
 use TurnosPonal\TipoVentanilla;
@@ -37,7 +38,7 @@ class VentanillaController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(Request $request)
+	public function store(VentanillaRequest $request)
 	{
 		Ventanilla::create($request->all());
 		Session::flash('message', 'ventanilla creada correctamente');
@@ -74,7 +75,7 @@ class VentanillaController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id, Request $request)
+	public function update($id, VentanillaRequest $request)
 	{
 		$Ventanilla = Ventanilla::find($id);
 		$Ventanilla->fill($request->all());

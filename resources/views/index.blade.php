@@ -10,19 +10,21 @@
 
   <body>
     <div class="container">
-		<form action="index.php" class="form-signin" method="POST">
+		{!!Form::open(['route'=>'log.store', 'method'=>'POST', 'class'=>'form-signin'])!!}
 			<h2 class="form-signin-heading">Inicie Sesi&oacute;n</h2>
 			<div class="form-group">
 				<input type="text" id="Usuario" class="form-control" placeholder="Usuario">
 			</div>
 			<input type="password" id="Contrasena" class="form-control" placeholder="Contrase&ntilde;a" required>
+			{!!Form::select('ventanilla', $Ventanillas, null, ['class'=> 'btn btn-default form-control'])!!}
 			<div class="checkbox">
 			  <label>
 			    <input type="checkbox" value="remember-me"> Recu&eacute;rdame
 			  </label>
 			</div>
-			<button class="btn btn-lg btn-danger btn-block" type="submit" name="iniciosesion">Iniciar Sesi&oacute;n</button>
-		</form>
+			<button class="btn btn-lg btn-success btn-block" type="submit" name="iniciosesion">Iniciar Sesi&oacute;n</button>
+		{!!Form::close()!!}
+		
 	</div>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>

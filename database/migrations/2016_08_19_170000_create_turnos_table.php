@@ -16,8 +16,12 @@ class CreateTurnosTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('turno');
-			$table->integer('tipoTurno_id')->unsigned();
-			$table->foreign('tipoTurno_id')->references('id')->on('tipoTurnos');
+			$table->integer('tipoVentanilla_id')->unsigned();
+			$table->foreign('tipoVentanilla_id')->references('id')->on('tipo_ventanillas');
+			$table->integer('ventanilla_id')->unsigned();
+			$table->foreign('ventanilla_id')->references('id')->on('ventanillas');
+			$table->integer('usuario_id')->unsigned();
+			$table->foreign('usuario_id')->references('id')->on('users');
 			$table->timestamps();
 		});
 	}

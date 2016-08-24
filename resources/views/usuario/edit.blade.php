@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('content')
+	@include('alerts.AlertsRequest')
 	{!!Form::model($user,['route'=>['Usuario.update', $user->id], 'method'=>'PUT'])!!}
 	@include('usuario.forms.usr')
 		<div class="row">

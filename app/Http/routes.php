@@ -12,9 +12,12 @@
 */
 
 Route::get('/', 'FrontController@index');
-Route::get('admin', 'FrontController@admin');
+Route::get('Admin', 'FrontController@admin');
+Route::get('Portal', 'FrontController@portal');
 
 Route::resource('Usuario', 'UsuarioController');
 Route::resource('TipoUsuario', 'TipoUsuarioController');
 Route::resource('Ventanilla', 'VentanillaController');
 Route::resource('TipoVentanilla', 'TipoVentanillaController');
+Route::resource('Turno', 'TurnoController');
+Route::resource('log', 'LogController');

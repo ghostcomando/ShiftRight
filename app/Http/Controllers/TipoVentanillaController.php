@@ -1,6 +1,7 @@
 <?php namespace TurnosPonal\Http\Controllers;
 
 use TurnosPonal\Http\Requests;
+use TurnosPonal\Http\Requests\TipoVentanillaRequest;
 use TurnosPonal\Http\Controllers\Controller;
 use TurnosPonal\TipoVentanilla;
 use Session;
@@ -35,7 +36,7 @@ class TipoVentanillaController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(Request $request)
+	public function store(TipoVentanillaRequest $request)
 	{
 		TipoVentanilla::create($request->all());
 		Session::flash('message', 'tipo de usuario creado correctamente');
@@ -71,7 +72,7 @@ class TipoVentanillaController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id, Request $request)
+	public function update($id, TipoVentanillaRequest $request)
 	{
 		$TipoVentanilla = TipoVentanilla::find($id);
 		$TipoVentanilla->fill($request->all());

@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Turno extends Model {
 
-	protected $table = 'Turno';
-	protected $fillable = ['Turnos'];
+	protected $table = 'turnos';
+	protected $fillable = ['turno', 'tipoVentanilla_id', 'ventanilla_id', 'usuario_id'];
 
 }

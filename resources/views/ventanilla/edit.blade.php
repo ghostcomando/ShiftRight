@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('content')
+@include('alerts.AlertsRequest')
 	{!!Form::model($Ventanilla,['route'=>['Ventanilla.update', $Ventanilla->id], 'method'=>'PUT'])!!}
 	@include('ventanilla.forms.vtnl')
 		{!!Form::submit('Actualizar',['class'=>'btn btn-primary'])!!}

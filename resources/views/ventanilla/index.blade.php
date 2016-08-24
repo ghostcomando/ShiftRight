@@ -16,7 +16,7 @@
 			<tbody>
 				<td>{{$Ventanilla->ventanilla}}</td>
 				<?php
-					$TV = $Ventanilla->id
+					$TV = $Ventanilla->tipoVentanillas_id;
 				?>
 				<td>{{DB::table('tipo_ventanillas')->where('id', $TV)->pluck('tipoVentanilla')}}</td>
 				<td>

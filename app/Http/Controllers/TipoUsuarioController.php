@@ -1,6 +1,7 @@
 <?php namespace TurnosPonal\Http\Controllers;
 
 use TurnosPonal\Http\Requests;
+use TurnosPonal\Http\Requests\TipoUserRequest;
 use TurnosPonal\Http\Controllers\Controller;
 use TurnosPonal\TipoUsuario;
 use Session;
@@ -35,7 +36,7 @@ class TipoUsuarioController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(request $request)
+	public function store(TipoUserRequest $request)
 	{
 		TipoUsuario::create($request->all());
 		Session::flash('message', 'tipo de usuario creado correctamente');
@@ -71,7 +72,7 @@ class TipoUsuarioController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id, Request $request)
+	public function update($id, TipoUserRequest $request)
 	{
 		$TipoUsuario = TipoUsuario::find($id);
 		$TipoUsuario->fill($request->all());

@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('content')
+@include('alerts.AlertsRequest')
 	{!!Form::model($tipoVentanilla,['route'=>['TipoVentanilla.update', $tipoVentanilla->id], 'method'=>'PUT'])!!}
 	@include('tipoVentanilla.forms.tpvntnl')
 		<div class="row">

@@ -1,6 +1,9 @@
-$("#registro").click(function(){
-	var dato = $("#genre").val();
-	var route = "/genero";
+$("#siguiente").click(function(){
+	var turno = "1";
+	var tipoVentanilla = "1";
+	var ventanilla = "1";
+	var usuario = "1";
+	var route = "/Turno";
 	var token = $("#token").val();
 
 	$.ajax({
@@ -8,7 +11,7 @@ $("#registro").click(function(){
 		headers: {'X-CSRF-TOKEN': token},
 		type: 'POST',
 		dataType: 'json',
-		data:{genre: dato},
+		data:{turno: turno, tipoVentanilla_id: tipoVentanilla, ventanilla_id: ventanilla, usuario_id: usuario},
 
 		success:function(){
 			$("#msj-success").fadeIn();
