@@ -9,13 +9,17 @@
 </head>
 
   <body>
+  	@include('alerts.ErrorsRequest')
+  	@include('alerts.AlertsRequest')
     <div class="container">
 		{!!Form::open(['route'=>'log.store', 'method'=>'POST', 'class'=>'form-signin'])!!}
 			<h2 class="form-signin-heading">Inicie Sesi&oacute;n</h2>
 			<div class="form-group">
-				<input type="text" id="Usuario" class="form-control" placeholder="Usuario">
+				{!!Form::email('email',null, ['class'=>'form-control', 'placeholder'=>'Ingresa tu correo'])!!}
 			</div>
-			<input type="password" id="Contrasena" class="form-control" placeholder="Contrase&ntilde;a" required>
+			<div class="form-group">
+				{!!Form::password('password', ['class'=>'form-control', 'placeholder'=>'Ingresa tu contrase&ntilde;a', 'required'])!!}
+			</div>
 			{!!Form::select('ventanilla', $Ventanillas, null, ['class'=> 'btn btn-default form-control'])!!}
 			<div class="checkbox">
 			  <label>

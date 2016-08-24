@@ -32,6 +32,12 @@ class LogController extends Controller
         //
     }
 
+    public function logout()
+    {
+        Auth::logout();
+        return Redirect::to('/');
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -40,7 +46,16 @@ class LogController extends Controller
      */
     public function store(LogRequest $request)
     {
-        return $request->Usuario;
+        if(Auth::attempt(['email'=> $request['email'], 'password'=>$request['password']]))
+        {
+            return Redirect::to('Admin');
+        }
+        else
+        {
+            Session::flash('message-error', 'Sus datos son incorrectos');
+            return Redirect::to('/');
+        }
+        
     }
 
     /**

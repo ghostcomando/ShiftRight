@@ -21,3 +21,4 @@ Route::resource('Ventanilla', 'VentanillaController');
 Route::resource('TipoVentanilla', 'TipoVentanillaController');
 Route::resource('Turno', 'TurnoController');
 Route::resource('log', 'LogController');
+Route::get('logout', 'LogController@logout');
