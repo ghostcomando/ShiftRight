@@ -3,7 +3,7 @@
 use TurnosPonal\Http\Requests;
 use TurnosPonal\Http\Controllers\Controller;
 use TurnosPonal\Ventanilla;
-
+use TurnosPonal\Turno;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller {
@@ -30,9 +30,5 @@ class FrontController extends Controller {
 		return view('admin.index');
 	}
 
-	public function portal()
-	{
-		return view('portal');
-	}
 
 }

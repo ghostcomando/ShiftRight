@@ -8,27 +8,24 @@
                     <th class="info">TURNO</th>
                     <th class="info">VENTANILLA</th>
                 </tr>
-                <tr>
-                    <td class="danger">1 </td>
-                    <td class="danger">nombre1 </td>
-                </tr>
-                <tr>
-                    <td>2 </td>
-                    <td>nombre2 </td>
-                </tr>
-                <tr>
-                    <td>3 </td>
-                    <td>nombre3 </td>
-                </tr>
-                <tr>
-                    <td>4 </td>
-                    <td>nombre4 </td>
-                </tr>
-                <tr>
-                    <td>5 </td>
-                    <td>nombre5 </td>
-                </tr>
+                @foreach($turnos as $turno)
+                <?php
+                    $IDVentanilla = $turno->ventanilla_id;
+                ?>
+            <tbody>
+                <td>{{$turno->turno}}</td>
+                <td>{{DB::table('ventanillas')->where('id', $IDVentanilla)->pluck('ventanilla')}}</td>
+            </tbody>
+            @endforeach
             </table>
+            {!!Form::open(['route'=>'Turno.store', 'method'=>'POST'])!!}                
+                {!!Form::hidden('turno', '2')!!}
+                {!!Form::hidden('tipoVentanilla_id', '1')!!}
+                {!!Form::hidden('ventanilla_id', '2')!!}
+                {!!Form::hidden('usuario_id', '1')!!}
+            {!!Form::submit('Siguiente',['class'=>'btn btn-lg btn-success'])!!}
+            {!!Form::close()!!}
         </div>
     </div>
+    {!!$turnos->render()!!}
 @stop

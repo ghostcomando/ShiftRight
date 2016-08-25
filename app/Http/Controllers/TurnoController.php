@@ -3,20 +3,33 @@
 namespace TurnosPonal\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use TurnosPonal\Turno;
 use TurnosPonal\Http\Requests;
+use Illuminate\Support\Facades\DB;
 use TurnosPonal\Http\Controllers\Controller;
 
 class TurnoController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function portal()
+    {
+        $turnos = Turno::orderBy('id', 'desc')->paginate(6);
+        return view('portal', compact('turnos'));
+    }
+
     public function index()
     {
-        return view('Turno.index');
+
     }
 
     /**
@@ -37,12 +50,8 @@ class TurnoController extends Controller
      */
     public function store(Request $request)
     {
-        if($request->ajax()){
-            Turno::create($request->all());
-            return response()->json([
-                "mensaje" => "creado"
-            ]);
-        }
+        Turno::create($request->all());
+        return redirect('/Portal');
     }
 
     /**
@@ -89,4 +98,6 @@ class TurnoController extends Controller
     {
         //
     }
+
+    
 }

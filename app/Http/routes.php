@@ -13,7 +13,7 @@
 
 Route::get('/', 'FrontController@index');
 Route::get('Admin', 'FrontController@admin');
-Route::get('Portal', 'FrontController@portal');
+Route::get('Portal', 'TurnoController@portal');
 
 Route::resource('Usuario', 'UsuarioController');
 Route::resource('TipoUsuario', 'TipoUsuarioController');
