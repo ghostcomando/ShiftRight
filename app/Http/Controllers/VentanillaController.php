@@ -11,6 +11,18 @@ use Illuminate\Http\Request;
 
 class VentanillaController extends Controller {
 
+	public function __construct()
+	{
+		$this->middleware('auth');
+		$this->middleware('admin');
+		$this->beforefilter('@find',['only'=>['edit', 'update', 'destroy']]);
+	}
+
+	public function find(Route $route)
+	{
+		$this->ventanilla = Ventanilla::find($route->getParameter('ventanilla'));
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 *

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use Session;
 use Redirect;
+use DB;
 use TurnosPonal\Http\Requests;
 use TurnosPonal\Http\Requests\LogRequest;
 use TurnosPonal\Http\Controllers\Controller;
@@ -45,10 +46,19 @@ class LogController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(LogRequest $request)
-    {
+    {        
+        $TU = DB::table('users')->where('email', $request['email'])->pluck('tipoUser_id');
         if(Auth::attempt(['email'=> $request['email'], 'password'=>$request['password']]))
         {
-            return Redirect::to('Admin');
+            if ($TU == 1)
+            {
+                return Redirect::to('Admin');
+            }
+            else
+            {
+                return Redirect::to('Portal');
+            }
+            
         }
         else
         {

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/EstilosPortal.css">
 </head>
 <body>
+    @include('alerts.ErrorsRequest')
     <div class="container-fluid col-md-offset-6 ">
         <div class="table-responsive">
             <table class="table table-striped table-hover" style="border-spacidng: 10px;">

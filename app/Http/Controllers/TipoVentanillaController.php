@@ -10,6 +10,19 @@ use Illuminate\Http\Request;
 
 class TipoVentanillaController extends Controller {
 
+	public function __construct()
+	{
+		$this->middleware('auth');
+		$this->middleware('admin');
+		$this->beforefilter('@find',['only'=>['edit', 'update', 'destroy']]);
+	}
+
+	public function find(Route $route)
+	{
+		$this->tipoventanilla = TipoVentanilla::find($route->getParameter('tipoventanilla'));
+	}
+
+
 	/**
 	 * Display a listing of the resource.
 	 *

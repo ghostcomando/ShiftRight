@@ -27,6 +27,7 @@ class Kernel extends HttpKernel {
 		'auth' => 'TurnosPonal\Http\Middleware\Authenticate',
 		'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
 		'guest' => 'TurnosPonal\Http\Middleware\RedirectIfAuthenticated',
+		'admin' => 'TurnosPonal\Http\Middleware\Admin',
 	];
 
 }
