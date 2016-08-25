@@ -14,7 +14,7 @@ class TipoUsuarioController extends Controller {
 	{
 		$this->middleware('auth');
 		$this->middleware('admin');
-		$this->beforefilter('@find',['only'=>['edit', 'update', 'destroy']]);
+		//$this->beforefilter('@find',['only'=>['edit', 'update', 'destroy']]);
 	}
 
 	public function find(Route $route)
