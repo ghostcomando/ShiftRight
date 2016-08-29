@@ -7,6 +7,7 @@ use Auth;
 use Session;
 use Redirect;
 use DB;
+use TurnosPonal\RegistroLogin;
 use TurnosPonal\Http\Requests;
 use TurnosPonal\Http\Requests\LogRequest;
 use TurnosPonal\Http\Controllers\Controller;
@@ -50,6 +51,11 @@ class LogController extends Controller
         $TU = DB::table('users')->where('email', $request['email'])->pluck('tipoUser_id');
         if(Auth::attempt(['email'=> $request['email'], 'password'=>$request['password']]))
         {
+            $User_id = DB::table('users')->where('email', $request['email'])->pluck('id');
+            RegistroLogin::create([
+                'user_id' => $User_id,
+                'ventanilla_id'=> $request['ventanilla'],
+                ]);
             if ($TU == 1)
             {
                 return Redirect::to('Admin');

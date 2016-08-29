@@ -13,7 +13,10 @@
 
 Route::get('/', 'FrontController@index');
 Route::get('Admin', 'FrontController@admin');
+Route::get('UsuarioFinal', 'FrontController@UsuarioFinal');
+Route::get('tablaTurnos', 'FrontController@tablaTurnos');
 Route::get('Portal', 'TurnoController@portal');
+Route::get('logout', 'LogController@logout');
 
 Route::resource('Usuario', 'UsuarioController');
 Route::resource('TipoUsuario', 'TipoUsuarioController');
@@ -21,4 +24,3 @@ Route::resource('Ventanilla', 'VentanillaController');
 Route::resource('TipoVentanilla', 'TipoVentanillaController');
 Route::resource('Turno', 'TurnoController');
 Route::resource('log', 'LogController');
-Route::get('logout', 'LogController@logout');

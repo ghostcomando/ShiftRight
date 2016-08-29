@@ -19,15 +19,40 @@ class FrontController extends Controller {
 	 *
 	 * @return Response
 	 */
+
 	public function index()
 	{
 		$Ventanillas = Ventanilla::lists('ventanilla','id');
 		return view('index', compact('Ventanillas'));
 	}
 
+	public function listening()
+    {
+        $turnos = Turno::all();
+        return response()->json(
+            $turnos->toArray()
+            );
+    }
+
+    public function datos()
+    {
+    	return view('datos');
+    }
+
 	public function admin()
 	{
 		return view('admin.index');
+	}
+
+	public function UsuarioFinal()
+	{
+		$turnos = Turno::orderBy('id', 'desc')->paginate(6);
+		return view('UsuarioFinal', compact('turnos'));
+	}
+
+	public function tablaTurnos()
+	{
+		return view('tablaTurnos');
 	}
 
 

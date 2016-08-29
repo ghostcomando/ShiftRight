@@ -1,23 +1,32 @@
-@extends('layouts.admin')
-@section('content')
-    @include('alerts.ErrorsRequest')  
-    <div class="container-fluid col-md-offset-6 " id="tablaTurnos" setinterval="1000">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    {!!Html::style('css/bootstrap.min.css')!!}
+    {!!Html::style('css/metisMenu.min.css')!!}
+    {!!Html::style('css/sb-admin-2.css')!!}
+    {!!Html::style('css/font-awesome.min.css')!!}
+    {!!Html::style('css/EstilosPortal.css')!!}
+</head>
+<body>
+    
+    <div class="container-fluid col-md-offset-6 ">
         <div class="table-responsive">
-            <table class="table table-striped table-hover" >
+            <table class="table table-striped table-hover" id="tablaTurnos">
                 <tr class="active">
                     <th class="info">TURNO</th>
                     <th class="info">VENTANILLA</th>
                 </tr>
                 <?php
-                    $Ventanilla_id = DB::table('registro_logins')->where('user_id', Auth::user()->id)->orderBy('id','desc')->pluck('ventanilla_id');
-                    $TipoVentanilla_id = DB::table('ventanillas')->where('id', $Ventanilla_id)->pluck('TipoVentanillas_id');
-                    $TurnoActual = DB::table('turnos')->orderBy('turno', 'desc')->where('tipoVentanilla_id', $TipoVentanilla_id)->value('turno');
-                    $TurnoSiguiente = $TurnoActual + 1;
-                    $Usuario_id = Auth::user()->id;
+                    
                 ?>
                 @foreach($turnos as $turno)
                 <?php
-                    $IDVentanilla = $turno->ventanilla_id;
+                    
                 ?>
             <tbody>
                 <td>{{$turno->turno}}</td>
@@ -35,4 +44,12 @@
         </div>
     </div>
     {!!$turnos->render()!!}
-@stop
+
+     {!!Html::script('js/jquery.min.js')!!}
+    {!!Html::script('js/bootstrap.min.js')!!}
+    {!!Html::script('js/metisMenu.min.js')!!}
+    {!!Html::script('js/sb-admin-2.js')!!}
+
+</body>
+
+</html>

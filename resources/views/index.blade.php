@@ -26,7 +26,7 @@
 			    <input type="checkbox" value="remember-me"> Recu&eacute;rdame
 			  </label>
 			</div>
-			<button class="btn btn-lg btn-danger btn-block" type="submit" name="iniciosesion">Iniciar Sesi&oacute;n</button>
+			<button class="btn btn-lg btn-info btn-block" type="submit" name="iniciosesion">Iniciar Sesi&oacute;n</button>
 		{!!Form::close()!!}
 		
 	</div>

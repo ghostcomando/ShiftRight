@@ -15,7 +15,7 @@ class CreateTurnosTable extends Migration {
 		Schema::create('turnos', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('turno');
+			$table->integer('turno');
 			$table->integer('tipoVentanilla_id')->unsigned();
 			$table->foreign('tipoVentanilla_id')->references('id')->on('tipo_ventanillas');
 			$table->integer('ventanilla_id')->unsigned();

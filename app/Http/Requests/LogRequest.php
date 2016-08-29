@@ -26,6 +26,7 @@ class LogRequest extends Request
         return [
             'email'=> 'required | email',
             'password'=> 'required',
+            'ventanilla'=> 'required',
         ];
     }
 }

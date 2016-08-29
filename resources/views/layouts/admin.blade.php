@@ -50,7 +50,7 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                    @if(Auth::user()->tipoUser_id == 1)
+                        @if(Auth::user()->tipoUser_id == 1)
                         <li>
                             <a href="#"><i class="fa fa-users fa-fw"></i> Usuarios<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -107,7 +107,6 @@
         <div id="page-wrapper">
             @yield('content')
         </div>
-
     </div>
     
 
