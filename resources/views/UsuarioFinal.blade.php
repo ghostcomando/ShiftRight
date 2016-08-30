@@ -13,24 +13,28 @@
 
 
 </head>
-<body>
-
-	<div class="container-fluid col-md-offset-6 ">
+ <div class="container-fluid col-md-offset-6 " id="tablaTurnos" setinterval="1000">
         <div class="table-responsive">
-            <table class="table table-striped table-hover" id="tablaTurnos">
+            <table class="table table-striped table-hover" >
                 <tr class="active">
                     <th class="info">TURNO</th>
                     <th class="info">VENTANILLA</th>
-                </tr>                
-                <tbody id="datos">
-                </tbody>
+                </tr>
+                
+                @foreach($turnos as $turno)
+                <?php
+                    $IDVentanilla = $turno->ventanilla_id;
+                ?>
+            <tbody>
+                <td>{{$turno->turno}}</td>
+                <td>{{DB::table('ventanillas')->where('id', $IDVentanilla)->pluck('ventanilla')}}</td>
+            </tbody>
+            @endforeach
+            <?php
+            $self = $_SERVER['PHP_SELF']; //Obtenemos la página en la que nos encontramos
+            header("refresh:2; url=$self"); //Refrescamos cada 300 segundos
+            ?>
             </table>
         </div>
     </div>
-    {!!Html::script('js/jquery.min.js')!!}
-    {!!Html::script('js/bootstrap.min.js')!!}
-    {!!Html::script('js/metisMenu.min.js')!!}
-    {!!Html::script('js/sb-admin-2.js')!!}
-    {!!Html::script('js/script2.js')!!}
-</body>
 </html>

@@ -16,6 +16,8 @@
 <body>
     <?php
         $TypeUser = DB::table('tipo_usuarios')->where('id',Auth::user()->tipoUser_id)->pluck('tipoUsuario');
+        $Ventanilla_id = DB::table('registro_logins')->where('user_id', Auth::user()->id)->orderBy('id','desc')->pluck('ventanilla_id');
+        $Ventanilla = DB::table('ventanillas')->where('id', $Ventanilla_id)->pluck('ventanilla');
     ?>
     <div id="wrapper">
 
@@ -35,7 +37,8 @@
             <ul class="nav navbar-top-links navbar-right">
                  <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        {!!Auth::user()->name!!}<i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                       {!!Auth::user()->name!!}<i class="fa fa-user fa-fw"></i> 
+                       <?php echo $Ventanilla?>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Ajustes</a>

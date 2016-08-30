@@ -4,6 +4,7 @@ namespace TurnosPonal\Http\Controllers;
 
 use Illuminate\Http\Request;
 use TurnosPonal\Turno;
+use TurnosPonal\Ventanilla;
 use TurnosPonal\Http\Requests;
 use Illuminate\Support\Facades\DB;
 use TurnosPonal\Http\Controllers\Controller;
@@ -24,7 +25,7 @@ class TurnoController extends Controller
     public function portal()
     {
         $turnos = Turno::orderBy('id', 'desc')->paginate(6);
-        return view('portal', compact('turnos'));
+        return view('portal', compact('turnos', 'ventanillas'));
     }
 
     public function index()
